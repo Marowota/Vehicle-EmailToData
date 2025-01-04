@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="biXSrV6IBE6XelxgOTNyig" Reference="vlQOIxTClkyMGo6eC8HPqg/qpT0JWEwsEuhJTE3AArW0g" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost/dashboard/usage" CVScreenId="13eb8e98-be64-43d1-9152-191d9227b22e" CvTextArea="1362, 445, 168, 18" CvType="AnyWordGroup" DesignTimeRectangle="1335, 413, 302, 80" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' class='px-6 py-4' tag='TD' /&gt;" Guid="96c35915-93a5-4d7f-b435-17751a729c11" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="13eb8e98-be64-43d1-9152-191d9227b22e" CvTextArea="397, 445, 95, 17" CvTextArgument="[bienSoXeHienTai]" CvType="Text" DesignTimeRectangle="369, 413, 211, 80" ElementType="Text" FuzzySelectorArgument="[string.Format(&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white ' check:innerText='{0}' /&gt;&quot;, bienSoXeHienTai)]" Guid="aec31361-f413-48cf-8e09-245c02ec894f" ImageBase64="" SearchSteps="FuzzySelector, CV" />
+          <Target CVScreenId="13eb8e98-be64-43d1-9152-191d9227b22e" CvTextArea="1362, 375, 98, 21" CvTextArgument="KÉT THÚC $" CvType="Text" DesignTimeRectangle="1365, 378, 242, 20" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl aaname='Kết thúc' type='' tag='DIV' class='flex items-center ' check:innerText='KẾT THÚC' /&gt;" Guid="ff29e7de-efc5-496c-9ee0-9f8950b4f0bf" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="f6685f8908c43f07cf32c8ac64d28d18.png" xmlns="">0tLg9Z6n2LECnBoSg8_Frrg</imageRef>
+    </TargetAnchorable>
+    <scg:List x:TypeArguments="ObjectRepositoryVariableData" x:Key="Variables" Capacity="1">
+      <ObjectRepositoryVariableData DefaultValue="30A-92196" Name="bienSoXeHienTai" />
+    </scg:List>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

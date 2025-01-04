@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="u6YYYBk6DEyDgWkrKnjkSQ" Reference="vlQOIxTClkyMGo6eC8HPqg/NDCUZ4_TFEKNUMvnbXyEKg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost/dashboard/usage" CVScreenId="a224bff7-c15b-42cc-850c-1d1f581510bf" CvTextArea="397, 445, 95, 17" CvTextArgument="30A-92196" CvType="Text" DesignTimeRectangle="397, 445, 95, 16" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='TH' class='px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white ' aaname='30A-92196' check:innerText='bienSoXeMatches.First().Groups(1).Value.Trim' /&gt;" Guid="7faaabc2-b939-4d6a-be2b-23e1af3ad511" ImageBase64="" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="a224bff7-c15b-42cc-850c-1d1f581510bf" CvTextArea="397, 376, 104, 20" CvTextArgument="BIÉN só XE #" CvType="Text" DesignTimeRectangle="397, 375, 104, 21" FuzzySelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='DIV' class='flex items-center ' aaname='Biển số xe' check:innerText='BIỂN SỐ XE' /&gt;" Guid="b8098b51-f7a0-4809-8c94-496013aeafe5" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="4a7eb29d8efce85779819396c0c36ee0.png" xmlns="">0RNzWZP_nHk2uP0wLopzc9g</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">None</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

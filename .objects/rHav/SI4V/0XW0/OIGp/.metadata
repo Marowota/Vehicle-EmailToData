@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Từ ngày",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "OIGpdlX9TkKUkg-6Zz_DDg",
+  "Reference": "vlQOIxTClkyMGo6eC8HPqg/OIGpdlX9TkKUkg-6Zz_DDg",
+  "ParentRef": "vlQOIxTClkyMGo6eC8HPqg/0XW0KjsV_kCkW0izEaV7IA",
+  "Created": "2025-01-04T10:35:54.0148886Z",
+  "Updated": "2025-01-04T10:35:54.0148886Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.8.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

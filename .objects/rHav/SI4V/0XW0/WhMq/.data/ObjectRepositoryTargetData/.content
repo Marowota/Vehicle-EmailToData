@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="axh0Zl9W40CnuakQU-22pw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost/dashboard/usage/add" CVScreenId="7d85aafa-0316-4df4-a24b-25171ffd7a43" CvElementArea="683, 911, 249, 65" CvTextArea="785, 932, 45, 25" CvTextArgument="Hùy" CvType="Button" DesignTimeRectangle="685, 912, 247, 62" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl type='' class='w-1/6 mt-auto border px-2 py-3 cursor-pointer bg-red-400 hover:bg-red-500 active:bg-red-600 rounded-md text-center items-center content-center shadow-md' tag='DIV' aaname='' check:innerText='Hủy' /&gt;" Guid="704a260d-8f22-4407-9e20-c0408a574446" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="7d85aafa-0316-4df4-a24b-25171ffd7a43" CvTextArea="367, 187, 198, 28" CvTextArgument="Đăt lich sů dung" CvType="Text" DesignTimeRectangle="369, 182, 1480, 35" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Đặt lịch sử dụng' tag='DIV' type='' class='font-bold text-xl text-blue-900' check:innerText='Đặt lịch sử dụng' /&gt;" Guid="d5699721-5523-4ce0-aedf-540d9b853164" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="84ac68cae492af11294c6a9061e285d3.png" xmlns="">0_0s_lPG6JUC54XpgIx-KrA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="1EXpy_mwRE-njOmGJ7iyfQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost/dashboard/usage" CVScreenId="e5b99960-4ab3-4106-a32a-afc87ae705b0" CvTextArea="747, 311, 181, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="697, 294, 306, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='default-datepicker' type='datetime-local' tag='INPUT' class='bg-sky-50 border border-sky-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='Select date' aaname='' /&gt;" Guid="3189db5a-b1f7-4703-8bde-2ace913abcec" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="e5b99960-4ab3-4106-a32a-afc87ae705b0" CvTextArea="695, 266, 92, 26" CvTextArgument="Đén ngày" CvType="Text" DesignTimeRectangle="697, 264, 306, 30" ElementType="Text" FuzzySelectorArgument="&lt;webctrl type='' class='' tag='P' aaname='Đến ngày' check:innerText='Đến ngày' /&gt;" Guid="eab48658-3f9e-40ed-88d6-db0e6b5096af" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="87147606e7f3f2451faad334656bbcf9.png" xmlns="">06NqiNfgEPE-c0ZePW7POLA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
