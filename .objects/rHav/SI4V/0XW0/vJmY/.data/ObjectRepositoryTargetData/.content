@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="ko8V8P18LkSLZS3-cg5NgQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost/dashboard/usage/add" CVScreenId="23294c83-6f68-466f-aa98-e1d0865e993f" CvTextArea="1540, 172, 215, 21" CvTextArgument="! Bién só không tòn tai" CvType="Text" DesignTimeRectangle="1514, 142, 390, 80" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='3' tag='DIV' type='' class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error Toastify__toast--close-on-click' aaname='' check:innerText='Biển số không tồn tại' /&gt;" Guid="0f676e9b-b21e-4f42-a5be-9ce2a73857ee" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="ddc22d2e65ad4fafb573615397738a8d.png" xmlns="">0r00S9ti3b0GECyEdnUWSlg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

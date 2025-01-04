@@ -194,47 +194,257 @@
                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
-                  <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail" sap:VirtualizedContainerService.HintSize="1986,6113" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[mails]">
+                  <ui:ForEach x:TypeArguments="snm:MailMessage" CurrentIndex="{x:Null}" DisplayName="For Each mail" sap:VirtualizedContainerService.HintSize="554,4795" sap2010:WorkflowViewState.IdRef="ForEach`1_3" Values="[mails]">
                     <ui:ForEach.Body>
                       <ActivityAction x:TypeArguments="snm:MailMessage">
                         <ActivityAction.Argument>
                           <DelegateInArgument x:TypeArguments="snm:MailMessage" Name="mail" />
                         </ActivityAction.Argument>
-                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="1984,5992" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                        <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="552,4697" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <Sequence.Variables>
+                            <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="bienSoXeMatches" />
+                            <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="giangVienMatches" />
+                            <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="tenLopMatches" />
+                            <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="ketThucMatches" />
+                            <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="batDauMatches" />
+                          </Sequence.Variables>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <uix:NApplicationCard CloseMode="Never" DisplayName="Chrome Create Next App" sap:VirtualizedContainerService.HintSize="1950,5932" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="6d1543d6-856d-4829-a873-8c191aeab04f">
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="Bi[ểêe]n\s*s[ốóôo]\s*xe[:\s]*([^\n\S]+[A-Z0-9-]+)" DisplayName="Find Matching Patterns (Biển số xe)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[mail.Body.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Bi[ểêe]n\\s*s[ốóôo]\\s*xe[:\\s]*([^\\n\\S]+[A-Z0-9-]+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Bi[ểêe]n\s*s[ốóôo]\s*xe[:\s]*([^\n\S]+[A-Z0-9-]+)" RegexOption="IgnoreCase, Compiled" Result="[bienSoXeMatches]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <If Condition="[String.IsNullOrWhiteSpace(If(bienSoXeMatches.FirstOrDefault() Is Nothing, &quot;&quot;, bienSoXeMatches.First().Groups(1).Value.Trim())&#xD;&#xA;)]" DisplayName="If Exist (Biển số xe)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="If_1">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,258" sap2010:WorkflowViewState.IdRef="Sequence_21">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:ReplyToOutlookMailMessage AddBcc="{x:Null}" AddCc="{x:Null}" AddTo="{x:Null}" NewSubject="{x:Null}" ReplyFrom="{x:Null}" TimeoutMS="{x:Null}" Body="Thiếu thông tin biển số xe" DisplayName="Reply To Outlook Mail Message" sap:VirtualizedContainerService.HintSize="382,150" sap2010:WorkflowViewState.IdRef="ReplyToOutlookMailMessage_4" Importance="Normal" MailMessage="[mail]" ReplyAll="False">
+                                  <ui:ReplyToOutlookMailMessage.Files>
+                                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                  </ui:ReplyToOutlookMailMessage.Files>
+                                </ui:ReplyToOutlookMailMessage>
+                                <ui:Break sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Break_1" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_22">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="Gi[ảa]ng\s*vi[êe]n[:\s]*([^\n\S]+[^\n:]+)" DisplayName="Find Matching Patterns (Giảng viên)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[mail.Body.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Gi[ảa]ng\\s*vi[êe]n[:\\s]*([^\\n\\S]+[^\\n:]+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Gi[ảa]ng\s*vi[êe]n[:\s]*([^\n\S]+[^\n:]+)" RegexOption="IgnoreCase, Compiled" Result="[giangVienMatches]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <If Condition="[String.IsNullOrWhiteSpace(If(giangVienMatches.FirstOrDefault() Is Nothing, &quot;&quot;, giangVienMatches.First().Groups(1).Value.Trim()))]" DisplayName="If Exist (Giảng viên)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="If_2">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,258" sap2010:WorkflowViewState.IdRef="Sequence_23">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:ReplyToOutlookMailMessage AddBcc="{x:Null}" AddCc="{x:Null}" AddTo="{x:Null}" NewSubject="{x:Null}" ReplyFrom="{x:Null}" TimeoutMS="{x:Null}" Body="Thiếu thông tin giảng viên" DisplayName="Reply To Outlook Mail Message" sap:VirtualizedContainerService.HintSize="382,150" sap2010:WorkflowViewState.IdRef="ReplyToOutlookMailMessage_5" Importance="Normal" MailMessage="[mail]" ReplyAll="False">
+                                  <ui:ReplyToOutlookMailMessage.Files>
+                                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                  </ui:ReplyToOutlookMailMessage.Files>
+                                </ui:ReplyToOutlookMailMessage>
+                                <ui:Break sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Break_2" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_24">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="T[êe]n\s*l[ớơoó]p[:\s]*([^\n\S]+[^\n:]+\n)" DisplayName="Find Matching Patterns (Tên lớp)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="Matches_8" Input="[mail.Body.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;T[êe]n\\s*l[ớơoó]p[:\\s]*([^\\n\\S]+[^\\n:]+\\n)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="T[êe]n\s*l[ớơoó]p[:\s]*([^\n\S]+[^\n:]+\n)" RegexOption="IgnoreCase, Compiled" Result="[tenLopMatches]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <If Condition="[String.IsNullOrWhiteSpace(If(tenLopMatches.FirstOrDefault() Is Nothing, &quot;&quot;, tenLopMatches.First().Groups(1).Value.Trim()))]" DisplayName="If Exist (Tên lớp)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="If_3">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,258" sap2010:WorkflowViewState.IdRef="Sequence_25">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:ReplyToOutlookMailMessage AddBcc="{x:Null}" AddCc="{x:Null}" AddTo="{x:Null}" NewSubject="{x:Null}" ReplyFrom="{x:Null}" TimeoutMS="{x:Null}" Body="Thiếu thông tin tên lớp" DisplayName="Reply To Outlook Mail Message" sap:VirtualizedContainerService.HintSize="382,150" sap2010:WorkflowViewState.IdRef="ReplyToOutlookMailMessage_6" Importance="Normal" MailMessage="[mail]" ReplyAll="False">
+                                  <ui:ReplyToOutlookMailMessage.Files>
+                                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                  </ui:ReplyToOutlookMailMessage.Files>
+                                </ui:ReplyToOutlookMailMessage>
+                                <ui:Break sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Break_3" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="B[ắaáă]t\s*[đd][ầàaâ]u[:\s]*((\d{1,2}[h:]\d{2}[\s]*\d{1,2}[/\s]*\d{1,2}[/\s]*\d{4})|(\d{1,2} gi[ờòơo] \d{2} ng[aà]y \d{1,2} th[áa]ng \d{1,2} n[ăa]m \d{4}))" DisplayName="Find Matching Patterns (Bắt đầu)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="Matches_10" Input="[mail.Body.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;B[ắaáă]t\\s*[đd][ầàaâ]u[:\\s]*((\\d{1,2}[h:]\\d{2}[\\s]*\\d{1,2}[\/\\s]*\\d{1,2}[\/\\s]*\\d{4})|(\\d{1,2} gi[ờòơo] \\d{2} ng[aà]y \\d{1,2} th[áa]ng \\d{1,2} n[ăa]m \\d{4}))&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="B[ắaáă]t\s*[đd][ầàaâ]u[:\s]*((\d{1,2}[h:]\d{2}[\s]*\d{1,2}[/\s]*\d{1,2}[/\s]*\d{4})|(\d{1,2} gi[ờòơo] \d{2} ng[aà]y \d{1,2} th[áa]ng \d{1,2} n[ăa]m \d{4}))" RegexOption="IgnoreCase, Compiled" Result="[batDauMatches]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <If Condition="[String.IsNullOrWhiteSpace(If(batDauMatches.FirstOrDefault() Is Nothing, &quot;&quot;, batDauMatches.First().Groups(1).Value.Trim()))]" DisplayName="If Exist (Bắt đầu)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="If_4">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,258" sap2010:WorkflowViewState.IdRef="Sequence_27">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:ReplyToOutlookMailMessage AddBcc="{x:Null}" AddCc="{x:Null}" AddTo="{x:Null}" NewSubject="{x:Null}" ReplyFrom="{x:Null}" TimeoutMS="{x:Null}" Body="Thiếu thông tin ngày bắt đầu" DisplayName="Reply To Outlook Mail Message" sap:VirtualizedContainerService.HintSize="382,150" sap2010:WorkflowViewState.IdRef="ReplyToOutlookMailMessage_7" Importance="Normal" MailMessage="[mail]" ReplyAll="False">
+                                  <ui:ReplyToOutlookMailMessage.Files>
+                                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                  </ui:ReplyToOutlookMailMessage.Files>
+                                </ui:ReplyToOutlookMailMessage>
+                                <ui:Break sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Break_4" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_28">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <ui:Matches FirstMatch="{x:Null}" BuilderPattern="K[ếêeé]t\s*th[úu]c[:\s]*((\d{1,2}[h:]\d{2}[\s]*\d{1,2}[/\s]*\d{1,2}[/\s]*\d{4})|(\d{1,2} gi[ờòơo] \d{2} ng[aà]y \d{1,2} th[áa]ng \d{1,2} n[ăa]m \d{4}))" DisplayName="Find Matching Patterns (Kết thúc)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="Matches_9" Input="[mail.Body.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;K[ếêeé]t\\s*th[úu]c[:\\s]*((\\d{1,2}[h:]\\d{2}[\\s]*\\d{1,2}[\/\\s]*\\d{1,2}[\/\\s]*\\d{4})|(\\d{1,2} gi[ờòơo] \\d{2} ng[aà]y \\d{1,2} th[áa]ng \\d{1,2} n[ăa]m \\d{4}))&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="K[ếêeé]t\s*th[úu]c[:\s]*((\d{1,2}[h:]\d{2}[\s]*\d{1,2}[/\s]*\d{1,2}[/\s]*\d{4})|(\d{1,2} gi[ờòơo] \d{2} ng[aà]y \d{1,2} th[áa]ng \d{1,2} n[ăa]m \d{4}))" RegexOption="IgnoreCase, Compiled" Result="[ketThucMatches]">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:Matches>
+                          <If Condition="[String.IsNullOrWhiteSpace(If(ketThucMatches.FirstOrDefault() Is Nothing, &quot;&quot;, ketThucMatches.First().Groups(1).Value.Trim()))]" DisplayName="If Exist (Kết thúc)" sap:VirtualizedContainerService.HintSize="518,57" sap2010:WorkflowViewState.IdRef="If_5">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <If.Then>
+                              <Sequence DisplayName="Then" sap:VirtualizedContainerService.HintSize="416,258" sap2010:WorkflowViewState.IdRef="Sequence_29">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:ReplyToOutlookMailMessage AddBcc="{x:Null}" AddCc="{x:Null}" AddTo="{x:Null}" NewSubject="{x:Null}" ReplyFrom="{x:Null}" TimeoutMS="{x:Null}" Body="Thiếu thông tin ngày kết thúc" DisplayName="Reply To Outlook Mail Message" sap:VirtualizedContainerService.HintSize="382,150" sap2010:WorkflowViewState.IdRef="ReplyToOutlookMailMessage_8" Importance="Normal" MailMessage="[mail]" ReplyAll="False">
+                                  <ui:ReplyToOutlookMailMessage.Files>
+                                    <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                  </ui:ReplyToOutlookMailMessage.Files>
+                                </ui:ReplyToOutlookMailMessage>
+                                <ui:Break sap:VirtualizedContainerService.HintSize="382,48" sap2010:WorkflowViewState.IdRef="Break_5" />
+                              </Sequence>
+                            </If.Then>
+                            <If.Else>
+                              <Sequence DisplayName="Else" sap:VirtualizedContainerService.HintSize="416,90" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Sequence>
+                            </If.Else>
+                          </If>
+                          <uix:NApplicationCard CloseMode="Never" DisplayName="Chrome Create Next App" sap:VirtualizedContainerService.HintSize="518,4067" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" OpenMode="IfNotOpen" ScopeGuid="6d1543d6-856d-4829-a873-8c191aeab04f">
                             <uix:NApplicationCard.Body>
                               <ActivityAction x:TypeArguments="x:Object">
                                 <ActivityAction.Argument>
                                   <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
                                 </ActivityAction.Argument>
-                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="1916,5692" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                                  <Sequence.Variables>
-                                    <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="bienSoXeMatches" />
-                                    <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="giangVienMatches" />
-                                    <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="tenLopMatches" />
-                                    <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="batDauMatches" />
-                                    <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="ketThucMatches" />
-                                  </Sequence.Variables>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="484,3827" sap2010:WorkflowViewState.IdRef="Sequence_6">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <uix:NCheckState DisplayName="Check App State 'Login'" sap:VirtualizedContainerService.HintSize="1882,1101" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
+                                  <uix:NCheckState DisplayName="Check App State 'Login'" sap:VirtualizedContainerService.HintSize="450,57" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
                                     <uix:NCheckState.IfExists>
-                                      <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,852" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                      <Sequence DisplayName="Target appears (Cần đăng nhập)" sap:VirtualizedContainerService.HintSize="450,25" sap2010:WorkflowViewState.IdRef="Sequence_9">
                                         <Sequence.Variables>
-                                          <Variable x:TypeArguments="x:String" Default="bruh" Name="accountUserName" />
+                                          <Variable x:TypeArguments="x:String" Name="accountUserName">
+                                            <Variable.Default>
+                                              <Literal x:TypeArguments="x:String">admin</Literal>
+                                            </Variable.Default>
+                                          </Variable>
                                           <Variable x:TypeArguments="x:String" Default="123456" Name="accountPassword" />
                                         </Sequence.Variables>
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                            <x:Boolean x:Key="IsPinned">False</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Username'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,286" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[accountUserName]" Version="V4">
@@ -305,190 +515,205 @@
                                         </uix:TargetAnchorable.Anchors>
                                       </uix:TargetAnchorable>
                                     </uix:NCheckState.Target>
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
                                   </uix:NCheckState>
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Sử dụng'" sap:VirtualizedContainerService.HintSize="1882,225" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
-                                    <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard" CVScreenId="f5574fee-346d-4dff-b1e1-34ad8c98f1d9" ContentHash="uEIZewN--kmQ3GsK1HUrsQ" CvTextArea="82, 369, 83, 23" CvTextArgument="Sù dung" CvType="Text" DesignTimeRectangle="34, 354, 250, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Sử dụng' tag='A' type='' class='hover:bg-sky-50 rounded-md font-bold px-3 py-2 select-none cursor-pointer active:bg-sky-100 flex' check:innerText='Sử dụng' /&gt;" Guid="c9914139-c35f-483b-af17-52fb266aafd9" InformativeScreenshot="7c49b7bbfd74d0bc1c51cbb6b649f0c2.png" Reference="vlQOIxTClkyMGo6eC8HPqg/E7SonV4EiUWxQnbI5VmqUQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="f5574fee-346d-4dff-b1e1-34ad8c98f1d9" CvTextArea="112, 162, 91, 33" CvTextArgument="VMS" CvType="Text" DesignTimeRectangle="34, 157, 250, 45" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='VMS' tag='DIV' type='' class='text-center select-none text-sky-300 font-bold text-3xl mb-5' check:innerText='VMS' /&gt;" Guid="779e51e7-2bca-4368-a39e-a103b5db0fdc" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NClick.Target>
-                                    <uix:NClick.VerifyOptions>
-                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionOptions.Retry>
-                                        <uix:VerifyExecutionOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionOptions.Timeout>
-                                      </uix:VerifyExecutionOptions>
-                                    </uix:NClick.VerifyOptions>
-                                  </uix:NClick>
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Đặt lịch'" sap:VirtualizedContainerService.HintSize="1882,225" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
-                                    <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage" CVScreenId="7ab8cbb8-a05b-4061-b86f-97e688fc5e00" ContentHash="R4t4ckPrEk6G1Gnv4KbdDQ" CvElementArea="1706, 262, 145, 55" CvTextArea="1746, 281, 65, 21" CvTextArgument="Đăt lich" CvType="Button" DesignTimeRectangle="1709, 264, 140, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Đặt lịch' tag='A' type='' class='block border h-10 w-28 px-2 py-1 cursor-pointer bg-sky-400 border-sky-500 hover:bg-sky-500 active:bg-sky-600 rounded text-center items-center content-center shadow-sm' check:innerText='Đặt lịch' /&gt;" Guid="52dee6bf-049d-46df-a60e-f25806e43a7b" InformativeScreenshot="1a24d2757dde45a94d63dbf0cd72f5c5.png" Reference="vlQOIxTClkyMGo6eC8HPqg/oQqiD8xn_kuyJ5UsPtLSCw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="7ab8cbb8-a05b-4061-b86f-97e688fc5e00" CvTextArea="367, 187, 104, 28" CvTextArgument="Sü dung" CvType="Text" DesignTimeRectangle="369, 182, 1480, 35" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Sử dụng' tag='DIV' type='' class='font-bold text-xl text-blue-900' check:innerText='Sử dụng' /&gt;" Guid="06616f1a-cf8d-4acc-ba60-391e3d65e6dc" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NClick.Target>
-                                    <uix:NClick.VerifyOptions>
-                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionOptions.Retry>
-                                        <uix:VerifyExecutionOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionOptions.Timeout>
-                                      </uix:VerifyExecutionOptions>
-                                    </uix:NClick.VerifyOptions>
-                                  </uix:NClick>
-                                  <ui:Matches FirstMatch="{x:Null}" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="1882,92" sap2010:WorkflowViewState.IdRef="Matches_1" Input="[mail.Body.ToString]" IsBuilderTabModified="False" Pattern="Bi[ểêe]n\s*s[ốóôo]\s*xe[:\s]*([A-Z0-9-]+)" RegexOption="IgnoreCase, Compiled" Result="[bienSoXeMatches]" />
-                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1882,122" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[bienSoXeMatches.First().Groups(1).Value]" />
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Biển số xe'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1882,286" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[bienSoXeMatches.First().Groups(1).Value]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="b9a9b547-64f4-45d3-a75e-120f92301eac" ContentHash="lzUgwV01o0ezgcBIiXWGUA" CvElementArea="366, 297, 356, 57" CvType="InputBox" DesignTimeRectangle="369, 299, 350, 52" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='' /&gt;" Guid="d7b78269-64e4-4e8a-8ccd-d69e9e25d64b" InformativeScreenshot="e55e38b43f56fba24b1e5998d40974c3.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/Rgdix69Fe0Ob8I1HjLyHow" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                            <uix:Target CVScreenId="b9a9b547-64f4-45d3-a75e-120f92301eac" CvTextArea="367, 266, 87, 18" CvTextArgument="Bién só xe" CvType="Text" DesignTimeRectangle="369, 264, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' aaname='Biển số xe' check:innerText='Biển số xe' /&gt;" Guid="c1a4fa30-cf31-4bab-9a77-253cefd756ae" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                    <uix:NTypeInto.VerifyOptions>
-                                      <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionTypeIntoOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionTypeIntoOptions.Retry>
-                                        <uix:VerifyExecutionTypeIntoOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionTypeIntoOptions.Timeout>
-                                      </uix:VerifyExecutionTypeIntoOptions>
-                                    </uix:NTypeInto.VerifyOptions>
-                                  </uix:NTypeInto>
-                                  <ui:Matches FirstMatch="{x:Null}" BuilderPattern="Gi[ảa]ng\s*vi[êe]n[:\s]*([^\n]+)" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="1882,92" sap2010:WorkflowViewState.IdRef="Matches_2" Input="[mail.Body.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;Gi[ảa]ng\\s*vi[êe]n[:\\s]*([^\\n]+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="Gi[ảa]ng\s*vi[êe]n[:\s]*([^\n]+)" RegexOption="IgnoreCase, Compiled" Result="[giangVienMatches]" />
-                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1882,122" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[giangVienMatches.First().Groups(1).Value]" />
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Giảng viên'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1882,250" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[giangVienMatches.First().Groups(1).Value]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="d71db097-d09d-45e4-9a50-396f87470e26" ContentHash="JCa8CWpU2Uq70QU-krPPrw" CvElementArea="365, 414, 737, 57" CvType="InputBox" DesignTimeRectangle="369, 416, 730, 52" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_price' tag='INPUT' type='text' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='Anh' aaname='Giảng viên' /&gt;" Guid="b9ac4c27-6062-42f5-8322-15870054e471" InformativeScreenshot="2cfb20ca396bf957d24f4ced34d97e4b.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/wby_h-1RRUyuMffpyXd3aw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                            <uix:Target CVScreenId="d71db097-d09d-45e4-9a50-396f87470e26" CvTextArea="367, 385, 90, 20" CvTextArgument="Giàng viên" CvType="Text" DesignTimeRectangle="369, 381, 730, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Giảng viên' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white ' check:innerText='Giảng viên' /&gt;" Guid="f9d5c087-bace-4a82-85b8-8ca5bede5bb6" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                  </uix:NTypeInto>
-                                  <ui:Matches FirstMatch="{x:Null}" BuilderPattern="T[êe]n\s*l[ớơoó]p[:\s]*([^\n]+)" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="1882,92" sap2010:WorkflowViewState.IdRef="Matches_3" Input="[mail.Body.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;T[êe]n\\s*l[ớơoó]p[:\\s]*([^\\n]+)&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="T[êe]n\s*l[ớơoó]p[:\s]*([^\n]+)" RegexOption="IgnoreCase, Compiled" Result="[tenLopMatches]" />
-                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1882,122" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[tenLopMatches.First().Groups(1).Value]" />
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Tên lớp'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1882,250" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[tenLopMatches.First().Groups(1).Value]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="d71db097-d09d-45e4-9a50-396f87470e26" ContentHash="wWfmVs-yyUakylXIrCxMEQ" CvElementArea="367, 531, 355, 56" CvType="InputBox" DesignTimeRectangle="369, 533, 350, 52" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_id' tag='INPUT' type='text' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='Lop oto 11' aaname='Biển số xe' /&gt;" Guid="fed46450-15fd-4149-b8e9-9f37d240fe2c" InformativeScreenshot="373d57810752b4a47bc201be87bb098f.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/9hSM4BorSUq1EsC-tLNJhw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                            <uix:Target CVScreenId="d71db097-d09d-45e4-9a50-396f87470e26" CvTextArea="367, 502, 63, 20" CvTextArgument="Tên lóp" CvType="Text" DesignTimeRectangle="369, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Tên lớp' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Tên lớp' /&gt;" Guid="c35f7685-1b38-451d-9f92-c9766c000971" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                  </uix:NTypeInto>
-                                  <ui:Matches FirstMatch="{x:Null}" BuilderPattern="B[ắaáă]t\s*[đd][ầàaâ]u[:\s]*((\d{1,2}[h:]\d{2}[\s]*\d{1,2}[/\s]*\d{1,2}[/\s]*\d{4})|(\d{1,2} gi[ờòơo] \d{2} ng[aà]y \d{1,2} th[áa]ng \d{1,2} n[ăa]m \d{4}))" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="1882,92" sap2010:WorkflowViewState.IdRef="Matches_4" Input="[mail.Body.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;B[ắaáă]t\\s*[đd][ầàaâ]u[:\\s]*((\\d{1,2}[h:]\\d{2}[\\s]*\\d{1,2}[\/\\s]*\\d{1,2}[\/\\s]*\\d{4})|(\\d{1,2} gi[ờòơo] \\d{2} ng[aà]y \\d{1,2} th[áa]ng \\d{1,2} n[ăa]m \\d{4}))&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="B[ắaáă]t\s*[đd][ầàaâ]u[:\s]*((\d{1,2}[h:]\d{2}[\s]*\d{1,2}[/\s]*\d{1,2}[/\s]*\d{4})|(\d{1,2} gi[ờòơo] \d{2} ng[aà]y \d{1,2} th[áa]ng \d{1,2} n[ăa]m \d{4}))" RegexOption="IgnoreCase, Compiled" Result="[batDauMatches]" />
-                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1882,122" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[DateTime.ParseExact(batDauMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd/MM/yyyy h:mm tt&quot;, System.Globalization.CultureInfo.InvariantCulture).Replace(&quot;AM&quot;, &quot;SA&quot;).Replace(&quot;PM&quot;, &quot;CH&quot;)]" />
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Bắt đầu'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1882,250" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[DateTime.ParseExact(batDauMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd/MM/yyyy&quot;)]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="146f6bda-f36f-454b-8a21-eee2ee877802" ContentHash="Ip1wVtOFMkOZmRtgxoGQCA" CvTextArea="762, 549, 176, 20" CvTextArgument="20/02/2025 --:-- __" CvType="Text" DesignTimeRectangle="749, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_price' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Giảng viên' /&gt;" Guid="37a45853-232d-4156-9584-66fffe7b02cf" InformativeScreenshot="0968ff4c6ce68b023699b978fd847b2c.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/n62Rn5Oa90ml51pBcSD6zA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                            <uix:Target CVScreenId="146f6bda-f36f-454b-8a21-eee2ee877802" CvTextArea="747, 500, 65, 20" CvTextArgument="Bát đáu" CvType="Text" DesignTimeRectangle="749, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Bắt đầu' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Bắt đầu' /&gt;" Guid="2489ce52-a8cb-4c85-8983-7b62d297d013" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                  </uix:NTypeInto>
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Bắt đầu'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="1882,250" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="%[k(Right)]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="94f2f207-d840-4f26-b5f8-66b74109ea11" ContentHash="dvHsAiWiG0WFE8zw-8mZ2w" CvTextArea="761, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="749, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_price' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Giảng viên' /&gt;" Guid="2c638a46-8efa-4067-b0c6-a6c07a88a0d0" InformativeScreenshot="5d5e1377e907472e711cda780438836c.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/if4swH3Jv0WzuBIX5tMd9g" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                            <uix:Target CVScreenId="94f2f207-d840-4f26-b5f8-66b74109ea11" CvTextArea="747, 500, 65, 18" CvTextArgument="Bát đáu" CvType="Text" DesignTimeRectangle="749, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Bắt đầu' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Bắt đầu' /&gt;" Guid="3e59f4fd-2ac7-46b5-b13e-f8a8460bc3a6" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                  </uix:NTypeInto>
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Bắt đầu'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="1882,250" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[DateTime.ParseExact(batDauMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;hh:mmtt&quot;, System.Globalization.CultureInfo.InvariantCulture).Replace(&quot;AM&quot;, &quot;SA&quot;).Replace(&quot;PM&quot;, &quot;CH&quot;)]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="94f2f207-d840-4f26-b5f8-66b74109ea11" ContentHash="dvHsAiWiG0WFE8zw-8mZ2w" CvTextArea="761, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="749, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_price' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Giảng viên' /&gt;" Guid="2c638a46-8efa-4067-b0c6-a6c07a88a0d0" InformativeScreenshot="5d5e1377e907472e711cda780438836c.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/if4swH3Jv0WzuBIX5tMd9g" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="94f2f207-d840-4f26-b5f8-66b74109ea11" CvTextArea="747, 500, 65, 18" CvTextArgument="Bát đáu" CvType="Text" DesignTimeRectangle="749, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Bắt đầu' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Bắt đầu' /&gt;" Guid="3e59f4fd-2ac7-46b5-b13e-f8a8460bc3a6" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                  </uix:NTypeInto>
-                                  <ui:Matches FirstMatch="{x:Null}" BuilderPattern="K[ếêeé]t\s*th[úu]c[:\s]*((\d{1,2}[h:]\d{2}[\s]*\d{1,2}[/\s]*\d{1,2}[/\s]*\d{4})|(\d{1,2} gi[ờòơo] \d{2} ng[aà]y \d{1,2} th[áa]ng \d{1,2} n[ăa]m \d{4}))" DisplayName="Find Matching Patterns" sap:VirtualizedContainerService.HintSize="1882,92" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[mail.Body.ToString]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;K[ếêeé]t\\s*th[úu]c[:\\s]*((\\d{1,2}[h:]\\d{2}[\\s]*\\d{1,2}[\/\\s]*\\d{1,2}[\/\\s]*\\d{4})|(\\d{1,2} gi[ờòơo] \\d{2} ng[aà]y \\d{1,2} th[áa]ng \\d{1,2} n[ăa]m \\d{4}))&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="K[ếêeé]t\s*th[úu]c[:\s]*((\d{1,2}[h:]\d{2}[\s]*\d{1,2}[/\s]*\d{1,2}[/\s]*\d{4})|(\d{1,2} gi[ờòơo] \d{2} ng[aà]y \d{1,2} th[áa]ng \d{1,2} n[ăa]m \d{4}))" RegexOption="IgnoreCase, Compiled" Result="[ketThucMatches]" />
-                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="1882,122" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[DateTime.ParseExact(ketThucMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd/MM/yyyy h:mm tt&quot;, System.Globalization.CultureInfo.InvariantCulture).Replace(&quot;AM&quot;, &quot;SA&quot;).Replace(&quot;PM&quot;, &quot;CH&quot;)]" />
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Kết thúc'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="1882,250" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[DateTime.ParseExact(ketThucMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd/MM/yyyy&quot;)]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" ContentHash="27VMaR4TRkGkCBDvgaIYvw" CvTextArea="1141, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="1129, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_id' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Biển số xe' /&gt;" Guid="3113f567-c927-4ae0-85bd-4deae3739b3d" InformativeScreenshot="29389c7daf3dd694c48144d12779fb96.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/srTnYKO_YE2oFI0RyyNazQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                            <uix:Target CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" CvTextArea="1127, 500, 72, 19" CvTextArgument="Két thúc" CvType="Text" DesignTimeRectangle="1129, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Kết thúc' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Kết thúc' /&gt;" Guid="468e2025-89dc-4dc2-a6de-d8c145c650f3" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                  </uix:NTypeInto>
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Kết thúc'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="1882,250" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="%[k(Right)]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" ContentHash="27VMaR4TRkGkCBDvgaIYvw" CvTextArea="1141, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="1129, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_id' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Biển số xe' /&gt;" Guid="3113f567-c927-4ae0-85bd-4deae3739b3d" InformativeScreenshot="29389c7daf3dd694c48144d12779fb96.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/srTnYKO_YE2oFI0RyyNazQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" CvTextArea="1127, 500, 72, 19" CvTextArgument="Két thúc" CvType="Text" DesignTimeRectangle="1129, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Kết thúc' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Kết thúc' /&gt;" Guid="468e2025-89dc-4dc2-a6de-d8c145c650f3" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                  </uix:NTypeInto>
-                                  <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Kết thúc'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="1882,250" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[DateTime.ParseExact(ketThucMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;hh:mmtt&quot;, System.Globalization.CultureInfo.InvariantCulture).Replace(&quot;AM&quot;, &quot;SA&quot;).Replace(&quot;PM&quot;, &quot;CH&quot;)]" Version="V4">
-                                    <uix:NTypeInto.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" ContentHash="27VMaR4TRkGkCBDvgaIYvw" CvTextArea="1141, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="1129, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_id' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Biển số xe' /&gt;" Guid="3113f567-c927-4ae0-85bd-4deae3739b3d" InformativeScreenshot="29389c7daf3dd694c48144d12779fb96.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/srTnYKO_YE2oFI0RyyNazQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
-                                            <uix:Target CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" CvTextArea="1127, 500, 72, 19" CvTextArgument="Két thúc" CvType="Text" DesignTimeRectangle="1129, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Kết thúc' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Kết thúc' /&gt;" Guid="468e2025-89dc-4dc2-a6de-d8c145c650f3" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NTypeInto.Target>
-                                  </uix:NTypeInto>
-                                  <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Đặt lịch sử dụng'" sap:VirtualizedContainerService.HintSize="1882,225" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
-                                    <uix:NClick.Target>
-                                      <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="c29c2239-00fe-47ad-ab5c-8660ec461220" ContentHash="cvIVijqZv0KaDIIHU_wN-g" CvElementArea="367, 911, 299, 65" CvTextArea="496, 932, 40, 20" CvTextArgument="Lu'u" CvType="Button" DesignTimeRectangle="369, 912, 296, 62" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl type='' class='w-1/5 mt-auto border px-2 py-3 cursor-pointer bg-sky-400 hover:bg-sky-500 active:bg-sky-600 rounded-md text-center items-center content-center shadow-md' tag='DIV' aaname='' check:innerText='Lưu' /&gt;" Guid="a3e41f76-c664-42e6-9189-579c8bfafd44" InformativeScreenshot="be072615cdcff1e9de225aeedfd6365a.png" Reference="vlQOIxTClkyMGo6eC8HPqg/zmQyTjfhj0664B3NiRQUhw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
-                                        <uix:TargetAnchorable.Anchors>
-                                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
-                                            <uix:Target CVScreenId="c29c2239-00fe-47ad-ab5c-8660ec461220" CvTextArea="367, 187, 198, 28" CvTextArgument="Đăt lich sů dung" CvType="Text" DesignTimeRectangle="369, 182, 1480, 35" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Đặt lịch sử dụng' tag='DIV' type='' class='font-bold text-xl text-blue-900' check:innerText='Đặt lịch sử dụng' /&gt;" Guid="113feee0-0e0d-408b-a592-e2693c7ed071" SearchSteps="FuzzySelector, CV" />
-                                          </scg:List>
-                                        </uix:TargetAnchorable.Anchors>
-                                      </uix:TargetAnchorable>
-                                    </uix:NClick.Target>
-                                    <uix:NClick.VerifyOptions>
-                                      <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
-                                        <uix:VerifyExecutionOptions.Retry>
-                                          <InArgument x:TypeArguments="x:Boolean" />
-                                        </uix:VerifyExecutionOptions.Retry>
-                                        <uix:VerifyExecutionOptions.Timeout>
-                                          <InArgument x:TypeArguments="x:Double" />
-                                        </uix:VerifyExecutionOptions.Timeout>
-                                      </uix:VerifyExecutionOptions>
-                                    </uix:NClick.VerifyOptions>
-                                  </uix:NClick>
-                                  <Parallel sap:VirtualizedContainerService.HintSize="1882,498" sap2010:WorkflowViewState.IdRef="Parallel_1">
+                                  <Sequence DisplayName="Sequence Input Data" sap:VirtualizedContainerService.HintSize="450,3658" sap2010:WorkflowViewState.IdRef="Sequence_31">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Sử dụng'" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard" CVScreenId="f5574fee-346d-4dff-b1e1-34ad8c98f1d9" ContentHash="uEIZewN--kmQ3GsK1HUrsQ" CvTextArea="82, 369, 83, 23" CvTextArgument="Sù dung" CvType="Text" DesignTimeRectangle="34, 354, 250, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Sử dụng' tag='A' type='' class='hover:bg-sky-50 rounded-md font-bold px-3 py-2 select-none cursor-pointer active:bg-sky-100 flex' check:innerText='Sử dụng' /&gt;" Guid="c9914139-c35f-483b-af17-52fb266aafd9" InformativeScreenshot="7c49b7bbfd74d0bc1c51cbb6b649f0c2.png" Reference="vlQOIxTClkyMGo6eC8HPqg/E7SonV4EiUWxQnbI5VmqUQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="f5574fee-346d-4dff-b1e1-34ad8c98f1d9" CvTextArea="112, 162, 91, 33" CvTextArgument="VMS" CvType="Text" DesignTimeRectangle="34, 157, 250, 45" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='VMS' tag='DIV' type='' class='text-center select-none text-sky-300 font-bold text-3xl mb-5' check:innerText='VMS' /&gt;" Guid="779e51e7-2bca-4368-a39e-a103b5db0fdc" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <uix:NClick.VerifyOptions>
+                                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionOptions.Retry>
+                                          <uix:VerifyExecutionOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionOptions.Timeout>
+                                        </uix:VerifyExecutionOptions>
+                                      </uix:NClick.VerifyOptions>
+                                    </uix:NClick>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Đặt lịch'" sap:VirtualizedContainerService.HintSize="416,225" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage" CVScreenId="7ab8cbb8-a05b-4061-b86f-97e688fc5e00" ContentHash="R4t4ckPrEk6G1Gnv4KbdDQ" CvElementArea="1706, 262, 145, 55" CvTextArea="1746, 281, 65, 21" CvTextArgument="Đăt lich" CvType="Button" DesignTimeRectangle="1709, 264, 140, 50" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Đặt lịch' tag='A' type='' class='block border h-10 w-28 px-2 py-1 cursor-pointer bg-sky-400 border-sky-500 hover:bg-sky-500 active:bg-sky-600 rounded text-center items-center content-center shadow-sm' check:innerText='Đặt lịch' /&gt;" Guid="52dee6bf-049d-46df-a60e-f25806e43a7b" InformativeScreenshot="1a24d2757dde45a94d63dbf0cd72f5c5.png" Reference="vlQOIxTClkyMGo6eC8HPqg/oQqiD8xn_kuyJ5UsPtLSCw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="7ab8cbb8-a05b-4061-b86f-97e688fc5e00" CvTextArea="367, 187, 104, 28" CvTextArgument="Sü dung" CvType="Text" DesignTimeRectangle="369, 182, 1480, 35" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Sử dụng' tag='DIV' type='' class='font-bold text-xl text-blue-900' check:innerText='Sử dụng' /&gt;" Guid="06616f1a-cf8d-4acc-ba60-391e3d65e6dc" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <uix:NClick.VerifyOptions>
+                                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionOptions.Retry>
+                                          <uix:VerifyExecutionOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionOptions.Timeout>
+                                        </uix:VerifyExecutionOptions>
+                                      </uix:NClick.VerifyOptions>
+                                    </uix:NClick>
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[bienSoXeMatches.First().Groups(1).Value.Trim]" />
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Biển số xe'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,286" sap2010:WorkflowViewState.IdRef="NTypeInto_3" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[bienSoXeMatches.First().Groups(1).Value.Trim]" Version="V4">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="b9a9b547-64f4-45d3-a75e-120f92301eac" ContentHash="lzUgwV01o0ezgcBIiXWGUA" CvElementArea="366, 297, 356, 57" CvType="InputBox" DesignTimeRectangle="369, 299, 350, 52" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl tag='INPUT' type='text' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='' /&gt;" Guid="d7b78269-64e4-4e8a-8ccd-d69e9e25d64b" InformativeScreenshot="e55e38b43f56fba24b1e5998d40974c3.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/Rgdix69Fe0Ob8I1HjLyHow" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <uix:Target CVScreenId="b9a9b547-64f4-45d3-a75e-120f92301eac" CvTextArea="367, 266, 87, 18" CvTextArgument="Bién só xe" CvType="Text" DesignTimeRectangle="369, 264, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' aaname='Biển số xe' check:innerText='Biển số xe' /&gt;" Guid="c1a4fa30-cf31-4bab-9a77-253cefd756ae" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                      <uix:NTypeInto.VerifyOptions>
+                                        <uix:VerifyExecutionTypeIntoOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionTypeIntoOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Retry>
+                                          <uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionTypeIntoOptions.Timeout>
+                                        </uix:VerifyExecutionTypeIntoOptions>
+                                      </uix:NTypeInto.VerifyOptions>
+                                    </uix:NTypeInto>
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[giangVienMatches.First().Groups(1).Value.Trim]" />
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Giảng viên'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_4" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[giangVienMatches.First().Groups(1).Value.Trim]" Version="V4">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="d71db097-d09d-45e4-9a50-396f87470e26" ContentHash="JCa8CWpU2Uq70QU-krPPrw" CvElementArea="365, 414, 737, 57" CvType="InputBox" DesignTimeRectangle="369, 416, 730, 52" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_price' tag='INPUT' type='text' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='Anh' aaname='Giảng viên' /&gt;" Guid="b9ac4c27-6062-42f5-8322-15870054e471" InformativeScreenshot="2cfb20ca396bf957d24f4ced34d97e4b.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/wby_h-1RRUyuMffpyXd3aw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <uix:Target CVScreenId="d71db097-d09d-45e4-9a50-396f87470e26" CvTextArea="367, 385, 90, 20" CvTextArgument="Giàng viên" CvType="Text" DesignTimeRectangle="369, 381, 730, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Giảng viên' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white ' check:innerText='Giảng viên' /&gt;" Guid="f9d5c087-bace-4a82-85b8-8ca5bede5bb6" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                    </uix:NTypeInto>
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="WriteLine_3" Text="[tenLopMatches.First().Groups(1).Value.Trim]" />
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Tên lớp'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_5" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[tenLopMatches.First().Groups(1).Value.Trim]" Version="V4">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="d71db097-d09d-45e4-9a50-396f87470e26" ContentHash="wWfmVs-yyUakylXIrCxMEQ" CvElementArea="367, 531, 355, 56" CvType="InputBox" DesignTimeRectangle="369, 533, 350, 52" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_id' tag='INPUT' type='text' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' placeholder='Lop oto 11' aaname='Biển số xe' /&gt;" Guid="fed46450-15fd-4149-b8e9-9f37d240fe2c" InformativeScreenshot="373d57810752b4a47bc201be87bb098f.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/9hSM4BorSUq1EsC-tLNJhw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <uix:Target CVScreenId="d71db097-d09d-45e4-9a50-396f87470e26" CvTextArea="367, 502, 63, 20" CvTextArgument="Tên lóp" CvType="Text" DesignTimeRectangle="369, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Tên lớp' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Tên lớp' /&gt;" Guid="c35f7685-1b38-451d-9f92-c9766c000971" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                    </uix:NTypeInto>
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="WriteLine_4" Text="[DateTime.ParseExact(batDauMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd/MM/yyyy h:mm tt&quot;, System.Globalization.CultureInfo.InvariantCulture).Replace(&quot;AM&quot;, &quot;SA&quot;).Replace(&quot;PM&quot;, &quot;CH&quot;)]" />
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Bắt đầu'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_6" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[DateTime.ParseExact(batDauMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd/MM/yyyy&quot;)]" Version="V4">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="146f6bda-f36f-454b-8a21-eee2ee877802" ContentHash="Ip1wVtOFMkOZmRtgxoGQCA" CvTextArea="762, 549, 176, 20" CvTextArgument="20/02/2025 --:-- __" CvType="Text" DesignTimeRectangle="749, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_price' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Giảng viên' /&gt;" Guid="37a45853-232d-4156-9584-66fffe7b02cf" InformativeScreenshot="0968ff4c6ce68b023699b978fd847b2c.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/n62Rn5Oa90ml51pBcSD6zA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <uix:Target CVScreenId="146f6bda-f36f-454b-8a21-eee2ee877802" CvTextArea="747, 500, 65, 20" CvTextArgument="Bát đáu" CvType="Text" DesignTimeRectangle="749, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Bắt đầu' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Bắt đầu' /&gt;" Guid="2489ce52-a8cb-4c85-8983-7b62d297d013" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                    </uix:NTypeInto>
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Bắt đầu'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_8" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="%[k(Right)]" Version="V4">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="94f2f207-d840-4f26-b5f8-66b74109ea11" ContentHash="dvHsAiWiG0WFE8zw-8mZ2w" CvTextArea="761, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="749, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_price' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Giảng viên' /&gt;" Guid="2c638a46-8efa-4067-b0c6-a6c07a88a0d0" InformativeScreenshot="5d5e1377e907472e711cda780438836c.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/if4swH3Jv0WzuBIX5tMd9g" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <uix:Target CVScreenId="94f2f207-d840-4f26-b5f8-66b74109ea11" CvTextArea="747, 500, 65, 18" CvTextArgument="Bát đáu" CvType="Text" DesignTimeRectangle="749, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Bắt đầu' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Bắt đầu' /&gt;" Guid="3e59f4fd-2ac7-46b5-b13e-f8a8460bc3a6" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                    </uix:NTypeInto>
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Bắt đầu'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_9" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[DateTime.ParseExact(batDauMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;hh:mmtt&quot;, System.Globalization.CultureInfo.InvariantCulture).Replace(&quot;AM&quot;, &quot;SA&quot;).Replace(&quot;PM&quot;, &quot;CH&quot;)]" Version="V4">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="94f2f207-d840-4f26-b5f8-66b74109ea11" ContentHash="dvHsAiWiG0WFE8zw-8mZ2w" CvTextArea="761, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="749, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_price' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Giảng viên' /&gt;" Guid="2c638a46-8efa-4067-b0c6-a6c07a88a0d0" InformativeScreenshot="5d5e1377e907472e711cda780438836c.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/if4swH3Jv0WzuBIX5tMd9g" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="94f2f207-d840-4f26-b5f8-66b74109ea11" CvTextArea="747, 500, 65, 18" CvTextArgument="Bát đáu" CvType="Text" DesignTimeRectangle="749, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Bắt đầu' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Bắt đầu' /&gt;" Guid="3e59f4fd-2ac7-46b5-b13e-f8a8460bc3a6" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                    </uix:NTypeInto>
+                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="416,122" sap2010:WorkflowViewState.IdRef="WriteLine_6" Text="[DateTime.ParseExact(ketThucMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd/MM/yyyy h:mm tt&quot;, System.Globalization.CultureInfo.InvariantCulture).Replace(&quot;AM&quot;, &quot;SA&quot;).Replace(&quot;PM&quot;, &quot;CH&quot;)]" />
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Into 'Kết thúc'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_7" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[DateTime.ParseExact(ketThucMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;dd/MM/yyyy&quot;)]" Version="V4">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" ContentHash="27VMaR4TRkGkCBDvgaIYvw" CvTextArea="1141, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="1129, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_id' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Biển số xe' /&gt;" Guid="3113f567-c927-4ae0-85bd-4deae3739b3d" InformativeScreenshot="29389c7daf3dd694c48144d12779fb96.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/srTnYKO_YE2oFI0RyyNazQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <uix:Target CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" CvTextArea="1127, 500, 72, 19" CvTextArgument="Két thúc" CvType="Text" DesignTimeRectangle="1129, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Kết thúc' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Kết thúc' /&gt;" Guid="468e2025-89dc-4dc2-a6de-d8c145c650f3" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                    </uix:NTypeInto>
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Kết thúc'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_10" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="%[k(Right)]" Version="V4">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" ContentHash="27VMaR4TRkGkCBDvgaIYvw" CvTextArea="1141, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="1129, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_id' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Biển số xe' /&gt;" Guid="3113f567-c927-4ae0-85bd-4deae3739b3d" InformativeScreenshot="29389c7daf3dd694c48144d12779fb96.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/srTnYKO_YE2oFI0RyyNazQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" CvTextArea="1127, 500, 72, 19" CvTextArgument="Két thúc" CvType="Text" DesignTimeRectangle="1129, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Kết thúc' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Kết thúc' /&gt;" Guid="468e2025-89dc-4dc2-a6de-d8c145c650f3" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                    </uix:NTypeInto>
+                                    <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Kết thúc'" EmptyFieldMode="None" sap:VirtualizedContainerService.HintSize="416,250" sap2010:WorkflowViewState.IdRef="NTypeInto_11" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Text="[DateTime.ParseExact(ketThucMatches.First().Groups(1).Value, &quot;HH\hmm dd/MM/yyyy&quot;, System.Globalization.CultureInfo.InvariantCulture).ToString(&quot;hh:mmtt&quot;, System.Globalization.CultureInfo.InvariantCulture).Replace(&quot;AM&quot;, &quot;SA&quot;).Replace(&quot;PM&quot;, &quot;CH&quot;)]" Version="V4">
+                                      <uix:NTypeInto.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" ContentHash="27VMaR4TRkGkCBDvgaIYvw" CvTextArea="1141, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="1129, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_id' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Biển số xe' /&gt;" Guid="3113f567-c927-4ae0-85bd-4deae3739b3d" InformativeScreenshot="29389c7daf3dd694c48144d12779fb96.png" IsResponsive="True" Reference="vlQOIxTClkyMGo6eC8HPqg/srTnYKO_YE2oFI0RyyNazQ" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" CvTextArea="1127, 500, 72, 19" CvTextArgument="Két thúc" CvType="Text" DesignTimeRectangle="1129, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Kết thúc' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Kết thúc' /&gt;" Guid="468e2025-89dc-4dc2-a6de-d8c145c650f3" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NTypeInto.Target>
+                                    </uix:NTypeInto>
+                                    <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Đặt lịch sử dụng'" sap:VirtualizedContainerService.HintSize="416,218" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
+                                      <uix:NClick.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="c29c2239-00fe-47ad-ab5c-8660ec461220" ContentHash="cvIVijqZv0KaDIIHU_wN-g" CvElementArea="367, 911, 299, 65" CvTextArea="496, 932, 40, 20" CvTextArgument="Lu'u" CvType="Button" DesignTimeRectangle="369, 912, 296, 62" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl type='' class='w-1/5 mt-auto border px-2 py-3 cursor-pointer bg-sky-400 hover:bg-sky-500 active:bg-sky-600 rounded-md text-center items-center content-center shadow-md' tag='DIV' aaname='' check:innerText='Lưu' /&gt;" Guid="a3e41f76-c664-42e6-9189-579c8bfafd44" InformativeScreenshot="be072615cdcff1e9de225aeedfd6365a.png" Reference="vlQOIxTClkyMGo6eC8HPqg/zmQyTjfhj0664B3NiRQUhw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                                              <uix:Target CVScreenId="c29c2239-00fe-47ad-ab5c-8660ec461220" CvTextArea="367, 187, 198, 28" CvTextArgument="Đăt lich sů dung" CvType="Text" DesignTimeRectangle="369, 182, 1480, 35" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Đặt lịch sử dụng' tag='DIV' type='' class='font-bold text-xl text-blue-900' check:innerText='Đặt lịch sử dụng' /&gt;" Guid="113feee0-0e0d-408b-a592-e2693c7ed071" SearchSteps="FuzzySelector, CV" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NClick.Target>
+                                      <uix:NClick.VerifyOptions>
+                                        <uix:VerifyExecutionOptions DisplayName="{x:Null}" Mode="Appears">
+                                          <uix:VerifyExecutionOptions.Retry>
+                                            <InArgument x:TypeArguments="x:Boolean" />
+                                          </uix:VerifyExecutionOptions.Retry>
+                                          <uix:VerifyExecutionOptions.Timeout>
+                                            <InArgument x:TypeArguments="x:Double" />
+                                          </uix:VerifyExecutionOptions.Timeout>
+                                        </uix:VerifyExecutionOptions>
+                                      </uix:NClick.VerifyOptions>
+                                    </uix:NClick>
+                                  </Sequence>
+                                  <Parallel DisplayName="Parallel Check Result" sap:VirtualizedContainerService.HintSize="450,50" sap2010:WorkflowViewState.IdRef="Parallel_1">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
                                     <uix:NCheckState DisplayName="Check App State 'Tạo thành công'" sap:VirtualizedContainerService.HintSize="794,426" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
                                       <uix:NCheckState.IfExists>
                                         <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,209" sap2010:WorkflowViewState.IdRef="Sequence_11">
@@ -508,27 +733,42 @@
                                         <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage" CVScreenId="0ac26f72-3a02-48ec-b332-5896d4178e75" ContentHash="gM7BEeOLm0OL6N0yXR8ihg" CvTextArea="1566, 172, 141, 22" CvTextArgument="Tąo thành công" CvType="Text" DesignTimeRectangle="1514, 142, 390, 80" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='7' tag='DIV' type='' class='Toastify__toast Toastify__toast-theme--light Toastify__toast--success Toastify__toast--close-on-click' aaname='' check:innerText='Tạo thành công' /&gt;" Guid="bca158f8-aad1-4ea5-b01a-10c4738c5a07" InformativeScreenshot="013b8014566d6a71e42bdfbde7350029.png" Reference="vlQOIxTClkyMGo6eC8HPqg/j2MUpRA3dkGNjV8Sfquz8A" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
                                       </uix:NCheckState.Target>
                                     </uix:NCheckState>
-                                    <uix:NCheckState DisplayName="Check App State 'Thời gian sử dụng bị tr…'" sap:VirtualizedContainerService.HintSize="994,426" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
+                                    <uix:NCheckState DisplayName="Check App State 'Thời gian sử dụng bị tr…'" sap:VirtualizedContainerService.HintSize="794,426" sap2010:WorkflowViewState.IdRef="NCheckState_5" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
                                       <uix:NCheckState.IfExists>
-                                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,209" sap2010:WorkflowViewState.IdRef="Sequence_17">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
+                                          <ui:ReplyToOutlookMailMessage AddBcc="{x:Null}" AddCc="{x:Null}" AddTo="{x:Null}" NewSubject="{x:Null}" ReplyFrom="{x:Null}" TimeoutMS="{x:Null}" Body="Thời gian sử dụng bị trùng" DisplayName="Reply To Outlook Mail Message" sap:VirtualizedContainerService.HintSize="416,147" sap2010:WorkflowViewState.IdRef="ReplyToOutlookMailMessage_2" Importance="Normal" MailMessage="[mail]" ReplyAll="False">
+                                            <ui:ReplyToOutlookMailMessage.Files>
+                                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                            </ui:ReplyToOutlookMailMessage.Files>
+                                          </ui:ReplyToOutlookMailMessage>
                                         </Sequence>
                                       </uix:NCheckState.IfExists>
-                                      <uix:NCheckState.IfNotExists>
-                                        <Sequence DisplayName="Target does not appear" sap:VirtualizedContainerService.HintSize="450,92" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                      <uix:NCheckState.Target>
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" ContentHash="UOmISXOupEqCxRN8Vop7Ng" DesignTimeRectangle="1514, 142, 390, 95" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='1' tag='DIV' type='' class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error Toastify__toast--close-on-click' aaname='' check:innerText='Thời gian sử dụng bị trùng, hãy chọn một thời gian khác' /&gt;" Guid="f58f94ee-db32-4ae8-a32d-d4c3cde0769a" InformativeScreenshot="c961310588959e638f0d55d712892202.png" Reference="vlQOIxTClkyMGo6eC8HPqg/zA0xYL48wUiCF6b5kYySnA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive" />
+                                      </uix:NCheckState.Target>
+                                    </uix:NCheckState>
+                                    <uix:NCheckState DisplayName="Check App State 'Biển số không tồn tại'" sap:VirtualizedContainerService.HintSize="794,426" sap2010:WorkflowViewState.IdRef="NCheckState_6" ScopeIdentifier="6d1543d6-856d-4829-a873-8c191aeab04f" Version="V4">
+                                      <uix:NCheckState.IfExists>
+                                        <Sequence DisplayName="Target appears" sap:VirtualizedContainerService.HintSize="450,209" sap2010:WorkflowViewState.IdRef="Sequence_19">
                                           <sap:WorkflowViewStateService.ViewState>
                                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                             </scg:Dictionary>
                                           </sap:WorkflowViewStateService.ViewState>
+                                          <ui:ReplyToOutlookMailMessage AddBcc="{x:Null}" AddCc="{x:Null}" AddTo="{x:Null}" NewSubject="{x:Null}" ReplyFrom="{x:Null}" TimeoutMS="{x:Null}" Body="[&quot;Biển số &quot; + bienSoXeMatches.First().Groups(1).Value.Trim+ &quot; không tồn tại&quot;]" DisplayName="Reply To Outlook Mail Message" sap:VirtualizedContainerService.HintSize="416,147" sap2010:WorkflowViewState.IdRef="ReplyToOutlookMailMessage_3" Importance="Normal" MailMessage="[mail]" ReplyAll="False">
+                                            <ui:ReplyToOutlookMailMessage.Files>
+                                              <scg:List x:TypeArguments="InArgument(x:String)" Capacity="0" />
+                                            </ui:ReplyToOutlookMailMessage.Files>
+                                          </ui:ReplyToOutlookMailMessage>
                                         </Sequence>
-                                      </uix:NCheckState.IfNotExists>
+                                      </uix:NCheckState.IfExists>
                                       <uix:NCheckState.Target>
-                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" ContentHash="UOmISXOupEqCxRN8Vop7Ng" DesignTimeRectangle="1514, 142, 390, 95" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='1' tag='DIV' type='' class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error Toastify__toast--close-on-click' aaname='' check:innerText='Thời gian sử dụng bị trùng, hãy chọn một thời gian khác' /&gt;" Guid="f58f94ee-db32-4ae8-a32d-d4c3cde0769a" InformativeScreenshot="c961310588959e638f0d55d712892202.png" Reference="vlQOIxTClkyMGo6eC8HPqg/zA0xYL48wUiCF6b5kYySnA" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive" />
+                                        <uix:TargetAnchorable BrowserURL="localhost/dashboard/usage/add" CVScreenId="23294c83-6f68-466f-aa98-e1d0865e993f" ContentHash="ko8V8P18LkSLZS3-cg5NgQ" CvTextArea="1540, 172, 215, 21" CvTextArgument="! Bién só không tòn tai" CvType="Text" DesignTimeRectangle="1514, 142, 390, 80" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='3' tag='DIV' type='' class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error Toastify__toast--close-on-click' aaname='' check:innerText='Biển số không tồn tại' /&gt;" Guid="0f676e9b-b21e-4f42-a5be-9ce2a73857ee" InformativeScreenshot="ddc22d2e65ad4fafb573615397738a8d.png" Reference="vlQOIxTClkyMGo6eC8HPqg/vJmYK5VqZUWQHXa8p8GiKw" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive" />
                                       </uix:NCheckState.Target>
                                     </uix:NCheckState>
                                   </Parallel>
