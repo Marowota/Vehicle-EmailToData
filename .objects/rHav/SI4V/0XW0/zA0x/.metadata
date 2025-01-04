@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Thời gian sử dụng bị tr…",
+  "Type": "Element",
+  "Id": "zA0xYL48wUiCF6b5kYySnA",
+  "Reference": "vlQOIxTClkyMGo6eC8HPqg/zA0xYL48wUiCF6b5kYySnA",
+  "ParentRef": "vlQOIxTClkyMGo6eC8HPqg/0XW0KjsV_kCkW0izEaV7IA",
+  "Created": "2025-01-04T02:22:52.4736591Z",
+  "Updated": "2025-01-04T02:22:52.4736591Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.8.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

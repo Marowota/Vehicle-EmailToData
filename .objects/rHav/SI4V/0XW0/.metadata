@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Chrome Create Next App",
+  "Type": "Screen",
+  "Id": "0XW0KjsV_kCkW0izEaV7IA",
+  "Reference": "vlQOIxTClkyMGo6eC8HPqg/0XW0KjsV_kCkW0izEaV7IA",
+  "ParentRef": "vlQOIxTClkyMGo6eC8HPqg/SI4Vm2YPc0u5LfO8XspcBg",
+  "Created": "2025-01-03T10:56:16.7009647Z",
+  "Updated": "2025-01-03T10:56:16.7009647Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.8.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

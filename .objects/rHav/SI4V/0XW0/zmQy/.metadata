@@ -1,0 +1,13 @@
+﻿{
+  "Name": "Đặt lịch sử dụng",
+  "Type": "Element",
+  "Id": "zmQyTjfhj0664B3NiRQUhw",
+  "Reference": "vlQOIxTClkyMGo6eC8HPqg/zmQyTjfhj0664B3NiRQUhw",
+  "ParentRef": "vlQOIxTClkyMGo6eC8HPqg/0XW0KjsV_kCkW0izEaV7IA",
+  "Created": "2025-01-03T17:37:34.4574981Z",
+  "Updated": "2025-01-03T17:37:34.4574981Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.8.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

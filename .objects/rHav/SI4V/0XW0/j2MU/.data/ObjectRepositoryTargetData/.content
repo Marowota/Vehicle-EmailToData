@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="gM7BEeOLm0OL6N0yXR8ihg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost/dashboard/usage" CVScreenId="0ac26f72-3a02-48ec-b332-5896d4178e75" CvTextArea="1566, 172, 141, 22" CvTextArgument="Tąo thành công" CvType="Text" DesignTimeRectangle="1514, 142, 390, 80" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='7' tag='DIV' type='' class='Toastify__toast Toastify__toast-theme--light Toastify__toast--success Toastify__toast--close-on-click' aaname='' check:innerText='Tạo thành công' /&gt;" Guid="bca158f8-aad1-4ea5-b01a-10c4738c5a07" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="013b8014566d6a71e42bdfbde7350029.png" xmlns="">0HGh1yu83kEG9AelMBl7DfQ</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

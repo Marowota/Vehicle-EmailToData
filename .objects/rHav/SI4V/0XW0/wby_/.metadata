@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Giảng viên",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "wby_h-1RRUyuMffpyXd3aw",
+  "Reference": "vlQOIxTClkyMGo6eC8HPqg/wby_h-1RRUyuMffpyXd3aw",
+  "ParentRef": "vlQOIxTClkyMGo6eC8HPqg/0XW0KjsV_kCkW0izEaV7IA",
+  "Created": "2025-01-03T14:56:59.9474256Z",
+  "Updated": "2025-01-03T14:56:59.9474256Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.8.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

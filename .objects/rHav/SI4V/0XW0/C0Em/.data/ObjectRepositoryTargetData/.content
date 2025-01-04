@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="Brc2dFUu7EqFhr4ZQpnLvQ" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost" CVScreenId="4a0b9478-0984-42ee-8b2a-1aa4e036b9e7" CvElementArea="788, 825, 362, 55" CvTextArea="944, 844, 48, 21" CvTextArgument="Login" CvType="Button" DesignTimeRectangle="789, 841, 360, 25" DesignTimeScaleFactor="1.25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Login' tag='DIV' type='' class='text-white drop-shadow-lg select-none' check:innerText='Login' /&gt;" Guid="e4490b80-40ab-4fac-b06e-5635d75acd55" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target DesignTimeRectangle="699, 454, 540, 90" FuzzySelectorArgument="&lt;webctrl type='' tag='DIV' class='2xl:text-3xl text-xl text-center font-bold mb-8 2xl:mb-10' aaname='' check:innerText='VEHICLE MANAGEMENT SYSTEM - VMS' /&gt;" Guid="ba7a258f-9297-4d68-b3a9-18c4be13d653" SearchSteps="FuzzySelector" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="f68ab0bfaf5db767845deda02a9cde53.png" xmlns="">01nD39PIya0mBdBaWum2AXw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,12 @@
+﻿{
+  "Name": "Chrome Create Next App",
+  "Type": "App",
+  "Id": "rHavKFmJzUqNP20L4id7hA",
+  "Reference": "vlQOIxTClkyMGo6eC8HPqg/rHavKFmJzUqNP20L4id7hA",
+  "Created": "2025-01-03T10:56:16.6463882Z",
+  "Updated": "2025-01-03T10:56:16.6463882Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.8.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

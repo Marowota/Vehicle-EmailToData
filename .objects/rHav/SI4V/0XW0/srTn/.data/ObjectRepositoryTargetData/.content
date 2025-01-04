@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="27VMaR4TRkGkCBDvgaIYvw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost/dashboard/usage/add" CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" CvTextArea="1141, 550, 182, 23" CvTextArgument="dd/mm/yyyy --:-- --" CvType="Text" DesignTimeRectangle="1129, 533, 350, 55" DesignTimeScaleFactor="1.25" ElementType="InputBox" FuzzySelectorArgument="&lt;webctrl id='vehicle_id' tag='INPUT' type='datetime-local' class='bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500' aaname='Biển số xe' /&gt;" Guid="3113f567-c927-4ae0-85bd-4deae3739b3d" IsResponsive="True" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <TargetAnchorable.Anchors>
+        <scg:List x:TypeArguments="ITarget" Capacity="4">
+          <Target CVScreenId="f194f087-2503-49f0-a857-9f5ff1bbc3c7" CvTextArea="1127, 500, 72, 19" CvTextArgument="Két thúc" CvType="Text" DesignTimeRectangle="1129, 498, 350, 25" ElementType="Text" FuzzySelectorArgument="&lt;webctrl aaname='Kết thúc' tag='LABEL' type='' class='block mb-2 text-sm font-medium text-gray-900 dark:text-white' check:innerText='Kết thúc' /&gt;" Guid="468e2025-89dc-4dc2-a6de-d8c145c650f3" SearchSteps="FuzzySelector, CV" />
+        </scg:List>
+      </TargetAnchorable.Anchors>
+      <imageRef attrName="InformativeScreenshot" originalValue="29389c7daf3dd694c48144d12779fb96.png" xmlns="">0sNqh2gjNgk26gsHllde-Hw</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">TypeInto</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

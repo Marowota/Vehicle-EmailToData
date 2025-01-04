@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="6qy435YVP0KCasXHYwVF-A" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost" CVScreenId="4a0b9478-0984-42ee-8b2a-1aa4e036b9e7" CvElementArea="788, 825, 362, 55" CvTextArea="944, 844, 48, 21" CvTextArgument="Login" CvType="Button" DesignTimeRectangle="789, 828, 360, 50" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl type='' class='text-sm 2xl:text-md cursor-pointer w-full h-10 bg-sky-400 hover:bg-sky-500 active:bg-sky-600 rounded-md text-center items-center content-center shadow-md ' tag='DIV' aaname='' check:innerText='Login' /&gt;" Guid="ecefc951-02e6-4f4e-ab82-ab01f7cc6bba" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector, CV" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="0388e477163e8f5bbb3c398c32ce1706.png" xmlns="">0LVLnXN3nW06j4O44f2JFZg</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">Click</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

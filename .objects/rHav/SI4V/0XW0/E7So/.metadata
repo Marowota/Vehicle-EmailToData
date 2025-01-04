@@ -1,0 +1,14 @@
+﻿{
+  "Name": "Sử dụng",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "E7SonV4EiUWxQnbI5VmqUQ",
+  "Reference": "vlQOIxTClkyMGo6eC8HPqg/E7SonV4EiUWxQnbI5VmqUQ",
+  "ParentRef": "vlQOIxTClkyMGo6eC8HPqg/0XW0KjsV_kCkW0izEaV7IA",
+  "Created": "2025-01-03T11:15:28.8222851Z",
+  "Updated": "2025-01-03T11:15:28.8222851Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=24.10.8.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=24.12.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

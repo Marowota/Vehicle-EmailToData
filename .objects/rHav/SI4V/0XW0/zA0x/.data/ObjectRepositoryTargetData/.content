@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="UOmISXOupEqCxRN8Vop7Ng" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="localhost/dashboard/usage/add" DesignTimeRectangle="1514, 142, 390, 95" DesignTimeScaleFactor="1.25" FuzzySelectorArgument="&lt;webctrl id='1' tag='DIV' type='' class='Toastify__toast Toastify__toast-theme--light Toastify__toast--error Toastify__toast--close-on-click' aaname='' check:innerText='Thời gian sử dụng bị trùng, hãy chọn một thời gian khác' /&gt;" Guid="f58f94ee-db32-4ae8-a32d-d4c3cde0769a" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="FuzzySelector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="c961310588959e638f0d55d712892202.png" xmlns="">0lh0JPA8ha0ezP3wMzbMUoA</imageRef>
+    </TargetAnchorable>
+    <x:String x:Key="ActivityType">CheckState</x:String>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>
