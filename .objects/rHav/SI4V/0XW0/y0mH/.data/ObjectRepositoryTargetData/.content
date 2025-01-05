@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-16"?>
-<ObjectRepositoryTargetData ContentHash="ay6N3RkmqEeS4AanHScEWQ" Reference="vlQOIxTClkyMGo6eC8HPqg/y0mH7YRv20CDyvY0NJFtgg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<ObjectRepositoryTargetData ContentHash="UbAdornLY0KUb-QfbaLFHw" Reference="vlQOIxTClkyMGo6eC8HPqg/y0mH7YRv20CDyvY0NJFtgg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:p="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <ObjectRepositoryTargetData.Data>
-    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="http://localhost:3000/dashboard/usage" ContentHash="NnxATCuIKEaP5rkIZIlAew" DesignTimeRectangle="369, 363, 1459, 8290" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="f588d9a2-29a6-4165-ba35-d7e915fa03a5" Reference="vlQOIxTClkyMGo6eC8HPqg/y0mH7YRv20CDyvY0NJFtgg" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
-      <imageRef attrName="InformativeScreenshot" originalValue="3b45851815cab40c166d9d4c5ec9e136.png" xmlns="">036zHisixBUqCCkwU1aAwTQ</imageRef>
+    <TargetAnchorable x:Key="TargetAnchorable" BrowserURL="http://localhost:3000/dashboard/usage" DesignTimeRectangle="369, 363, 1459, 8290" DesignTimeScaleFactor="1.25" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="f588d9a2-29a6-4165-ba35-d7e915fa03a5" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Create Next App' /&gt;" SearchSteps="Selector" Version="V4" Visibility="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="3b45851815cab40c166d9d4c5ec9e136.png" xmlns="">0rqM2jA6GA0maSmHDYs2E7w</imageRef>
     </TargetAnchorable>
     <x:String x:Key="ActivityType">ExtractData</x:String>
     <p:InArgument x:TypeArguments="x:String" x:Key="ExtractDataSettings" xml:space="preserve">&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;
